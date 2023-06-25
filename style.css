@@ -1,0 +1,78 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title-div {
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(0, 48, 255, 0.4542191876750701) 100%
+  );
+  height: 20%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+h1{
+    margin: 70px;
+}
+
+form {
+  height: 30%;
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+}
+
+.name-input,
+.country-input,
+.price-input,
+.btn-div {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  width: 800px;
+  background: #dbe4f0;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  padding: 5px;
+  border: none;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: rgba(0, 48, 255, 0.4542191876750701);
+  border: none;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  align-self: flex-start;
+}
+
+.destination-table {
+  width: 800px;
+  background-color: rgb(238, 238, 238);
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+th {
+  background-color: rgb(211, 211, 211);
+}
+th,
+td {
+  border: 1px solid black;
+  padding: 8px;
+  word-wrap: break-word;
+}
