@@ -18,6 +18,7 @@ if (!document.getElementById("table-id")) {
   table.classList.add("destination-table");
 
   const tableHeaderRow = document.createElement("tr");
+  // tableHeaderRow.classList.add("table-header-row");
   const tableNameHeader = document.createElement("th");
   tableNameHeader.innerText = "Name";
   const tableCountryHeader = document.createElement("th");
@@ -35,19 +36,56 @@ submitButton.addEventListener("click", function makeTable() {
     inputCountry.value,
     inputPrice.value
   );
+  const destinationTableRows =
+    document.getElementsByClassName("destination-row");
+  if (destinationTableRows.length > 8) {
+    alert("You can enter oply up to 7 destinations");
+  } else {
+    if (
+      inputName.value.trim() !== "" &&
+      inputCountry.value.trim() !== "" &&
+      inputPrice.value.trim() !== ""
+    ) {
+      const destinationTableRow = document.createElement("tr");
+      destinationTableRow.className += "destination-row";
+      destinationTableRow.classList.add("ligth-row");
+      const nameTableData = document.createElement("td");
+      nameTableData.innerText = destination.name;
+      const countryTableData = document.createElement("td");
+      countryTableData.innerText = destination.country;
+      const priceTableData = document.createElement("td");
+      priceTableData.innerText = destination.price + " $";
+      priceTableData.classList.add("priceDataCell");
+      const deleteButton = document.createElement("i");
+      deleteButton.innerHTML = "<i class='fa-solid fa-circle-xmark'></i>";
 
-  const destinationTableRow = document.createElement("tr");
-  const nameTableData = document.createElement("td");
-  nameTableData.innerText = destination.name;
-  const countryTableData = document.createElement("td");
-  countryTableData.innerText = destination.country;
-  const priceTableData = document.createElement("td");
-  priceTableData.innerText = destination.price;
+      deleteButton.addEventListener("click", () => {
+        destinationTableRow.remove();
+        if (destinationTableRows.length === 0) {
+          table.remove();
+        }
+      });
 
-  destinationTableRow.append(nameTableData, countryTableData, priceTableData);
-  table.append(destinationTableRow);
-
-  if (!table.parentElement) {
-    body.appendChild(table);
+      destinationTableRow.append(
+        nameTableData,
+        countryTableData,
+        priceTableData
+      );
+      priceTableData.appendChild(deleteButton);
+      table.append(destinationTableRow);
+      body.appendChild(table);
+    } else {
+      alert(getEmptyInput());
+    }
   }
 });
+
+function getEmptyInput() {
+  if (inputName.value.trim() === "") {
+    return "You forgot to enter Name";
+  } else if (inputCountry.value.trim() === "") {
+    return "You forgot to enter Country";
+  } else if (inputPrice.value.trim() === "") {
+    return "You forgot to enter Price";
+  }
+}
