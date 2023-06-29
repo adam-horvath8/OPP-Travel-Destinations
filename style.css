@@ -37,7 +37,7 @@ h1 {
 }
 
 form {
-  height: 30%;
+  height: 300px;
   width: 800px;
   display: flex;
   flex-direction: column;
@@ -68,9 +68,9 @@ button {
   background-color: rgba(0, 48, 255, 0.4542191876750701);
   border: none;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  align-self: flex-start;
   border-radius: 4px;
   color: yellow;
+  width: 100px;
 }
 
 .destination-table {
@@ -104,4 +104,20 @@ td.priceDataCell {
 
 .fa-circle-xmark {
   color: rgb(163, 0, 0);
+}
+
+.alert-div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 101, 101, 0.6);
+  height: 300px;
+  width: 400px;
+  border-radius: 5px;
+  font-size: 1.3rem;
 }
